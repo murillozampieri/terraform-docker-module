@@ -29,7 +29,6 @@ resource "docker_network" "default" {
   }
 }
 
-
 resource "docker_container" "default" {
   name         = var.container_name != null ? var.container_name : local.container_name
   image        = docker_image.default.latest
@@ -117,8 +116,8 @@ resource "docker_container" "default" {
   dynamic "labels" {
     for_each = var.labels == null ? [] : [var.labels]
     content {
-      label = var.labels.label
-      value = var.labels.value
+      label = labels.label
+      value = labels.value
     }
   }
 
