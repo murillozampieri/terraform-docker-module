@@ -21,7 +21,7 @@ provider "docker" {
 }
 
 module "proxy" {
-  source = "alinefr/module/docker"
+  source = "murillozampieri/module/docker"
   version = "<add latest version>"
 
   image = "masnagam/nginx-proxy:latest"
@@ -84,10 +84,16 @@ module "proxy" {
     ipv6_address = null
     aliases = null
   }
+  labels = [
+    {
+      label = "xpto"
+      value = "xpto-value"
+    }
+  ]
 }
 
 module "letsencrypt-companion" {
-  source = "alinefr/module/docker"
+  source = "murillozampieri/module/docker"
   version = "<add latest version>"
 
   image = "jrcs/letsencrypt-nginx-proxy-companion"
@@ -171,3 +177,8 @@ No modules.
 | <a name="output_environment"></a> [environment](#output\_environment) | n/a |
 | <a name="output_volumes"></a> [volumes](#output\_volumes) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+# Credits
+
+https://github.com/alinefr/terraform-docker-module
+- [Aline Freitas](github.com/alinefr)
