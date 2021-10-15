@@ -121,4 +121,8 @@ resource "docker_container" "default" {
       value = var.labels.value
     }
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
