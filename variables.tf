@@ -128,9 +128,6 @@ variable "docker_networks" {
 }
 variable "labels" {
   description = "Add labels in container"
-  type = list(object({
-    label = string
-    value = string
-  }))
+  type = map(string)
   default = null
 }

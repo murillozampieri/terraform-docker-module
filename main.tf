@@ -114,9 +114,10 @@ resource "docker_container" "default" {
   }
 
   dynamic "labels" {
-    for_each = var.labels == null ? [] : [var.labels]
+    for_each = var.labels == null ? {} : [var.labels]
+    
     content {
-      label = labels.label
+      label = labels.key
       value = labels.value
     }
   }
